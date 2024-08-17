@@ -46,7 +46,7 @@ public class BlockTools {
 
     public static String getModid(ItemStack stack) {
         if (!stack.isEmpty()) {
-            return stack.getItem().getRegistryName().getResourceDomain();
+            return stack.getItem().getRegistryName().getNamespace();
         } else {
             return "";
         }
@@ -57,7 +57,7 @@ public class BlockTools {
         if (nameForObject == null) {
             return "?";
         }
-        return nameForObject.getResourceDomain();
+        return nameForObject.getNamespace();
     }
 
     public static String getReadableName(World world, BlockPos pos) {

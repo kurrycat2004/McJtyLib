@@ -19,15 +19,15 @@ public class GuiParserTools {
 
     public static void parseAndHandleServer(ResourceLocation guiDescription, Consumer<GuiParser.GuiCommand> consumer) {
         try {
-            ModContainer mod = Loader.instance().getIndexedModList().get(guiDescription.getResourceDomain());
+            ModContainer mod = Loader.instance().getIndexedModList().get(guiDescription.getNamespace());
 
             JsonContext ctx = new JsonContext(mod.getModId());
             Path filePath = null;
             if (mod.getSource().isFile()) {
-                FileSystem fs = FileSystems.newFileSystem(mod.getSource().toPath(), null);
-                filePath = fs.getPath("/assets/" + ctx.getModId() + "/" + guiDescription.getResourcePath());
+                FileSystem fs = FileSystems.newFileSystem(mod.getSource().toPath(), (ClassLoader) null);
+                filePath = fs.getPath("/assets/" + ctx.getModId() + "/" + guiDescription.getPath());
             } else if (mod.getSource().isDirectory()) {
-                filePath = mod.getSource().toPath().resolve("assets/" + ctx.getModId() + "/" + guiDescription.getResourcePath());
+                filePath = mod.getSource().toPath().resolve("assets/" + ctx.getModId() + "/" + guiDescription.getPath());
             }
 
             System.out.println("filePath = " + filePath);

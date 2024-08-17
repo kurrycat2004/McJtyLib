@@ -125,7 +125,7 @@ public class GenericTileEntity extends TileEntity implements ICommandHandler, IC
     }
 
     public void checkRedstone(World world, BlockPos pos) {
-        int powered = world.isBlockIndirectlyGettingPowered(pos); //TODO: check
+        int powered = world.getRedstonePowerFromNeighbors(pos); //TODO: check
         setPowerInput(powered);
     }
 

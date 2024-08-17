@@ -5,11 +5,11 @@ import mcjty.lib.base.GeneralConfig;
 import mcjty.lib.varia.WrenchChecker;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.util.function.Supplier;
@@ -39,8 +39,9 @@ public abstract class DefaultModSetup {
 
     protected void createTab(String name, Supplier<ItemStack> stack) {
         creativeTab = new CreativeTabs(name) {
+            @NotNull
             @Override
-            public ItemStack getTabIconItem() {
+            public ItemStack createIcon() {
                 return stack.get();
             }
         };

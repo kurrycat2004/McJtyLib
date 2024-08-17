@@ -52,7 +52,7 @@ public class MultipartBlock extends Block implements WailaInfoProvider, TOPInfoP
 
     public MultipartBlock() {
         super(Material.IRON);
-        setUnlocalizedName(McJtyLib.PROVIDES + "." + "multipart");
+        setTranslationKey(McJtyLib.PROVIDES + "." + "multipart");
         setRegistryName("multipart");
         McJtyRegister.registerLater(this, McJtyLib.instance, MultipartItemBlock::new);
         setHardness(2.0f);
@@ -194,7 +194,7 @@ public class MultipartBlock extends Block implements WailaInfoProvider, TOPInfoP
 
     private RayTraceResult checkIntersect(BlockPos pos, Vec3d vec3d, Vec3d vec3d1, AxisAlignedBB boundingBox) {
         RayTraceResult raytraceresult = boundingBox.calculateIntercept(vec3d, vec3d1);
-        return raytraceresult == null ? null : new RayTraceResult(raytraceresult.hitVec.addVector(pos.getX(), pos.getY(), pos.getZ()), raytraceresult.sideHit, pos);
+        return raytraceresult == null ? null : new RayTraceResult(raytraceresult.hitVec.add(pos.getX(), pos.getY(), pos.getZ()), raytraceresult.sideHit, pos);
     }
 
     @Override

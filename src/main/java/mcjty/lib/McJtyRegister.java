@@ -13,7 +13,6 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.registries.IForgeRegistry;
 
 import javax.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -71,7 +70,7 @@ public class McJtyRegister {
                     String newId = block.getRegistryName().toString();
                     GameRegistry.registerTileEntity(tile.getTileEntityClass(), newId);
                     if (tile.isNeedsNamespaceFixer()) {
-                        String oldPath = mBlock.getMod().getModId() + "_" + block.getRegistryName().getResourcePath();
+                        String oldPath = mBlock.getMod().getModId() + "_" + block.getRegistryName().getPath();
                         oldToNewIdMap.put(oldPath, newId);
                         oldToNewIdMap.put("minecraft:" + oldPath, newId);
                     }

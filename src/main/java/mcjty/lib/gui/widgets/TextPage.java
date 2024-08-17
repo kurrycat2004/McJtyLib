@@ -110,8 +110,8 @@ public class TextPage extends AbstractWidget<TextPage> {
         try {
             return resourceManager.getResource(manualResource);
         } catch (FileNotFoundException e) {
-            String fallBackPath = manualResource.getResourcePath().replaceAll("-([a-z\\-]{2,6})_?([a-z]{0,3})", "");
-            return resourceManager.getResource(new ResourceLocation(manualResource.getResourceDomain(), fallBackPath));
+            String fallBackPath = manualResource.getPath().replaceAll("-([a-z\\-]{2,6})_?([a-z]{0,3})", "");
+            return resourceManager.getResource(new ResourceLocation(manualResource.getNamespace(), fallBackPath));
         }
     }
 

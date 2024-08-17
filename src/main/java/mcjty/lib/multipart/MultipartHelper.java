@@ -91,7 +91,7 @@ public class MultipartHelper {
         if (playerIn instanceof net.minecraft.entity.player.EntityPlayerMP) {
             reach = ((EntityPlayerMP)playerIn).interactionManager.getBlockReachDistance();
         }
-        Vec3d vec31 = vec3.addVector(f6 * reach, f5 * reach, f7 * reach);
+        Vec3d vec31 = vec3.add(f6 * reach, f5 * reach, f7 * reach);
         return worldIn.rayTraceBlocks(vec3, vec31, useLiquids, !useLiquids, false);
     }
 

@@ -16,7 +16,7 @@ public class SimpleChannel {
     private final SimpleNetworkWrapper network;
 
     public SimpleChannel(ResourceLocation name) {
-        this.network = PacketHandler.registerMessages(name.getResourceDomain(), name.getResourcePath());
+        this.network = PacketHandler.registerMessages(name.getNamespace(), name.getPath());
     }
 
     public SimpleChannel(SimpleNetworkWrapper network) {

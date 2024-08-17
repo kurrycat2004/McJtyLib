@@ -1,0 +1,8 @@
+/.github/
+/.gradle/
+/.idea/
+/art/
+/build/
+/docs/
+/run/
+/spotless/

@@ -82,7 +82,7 @@ public class BaseBlock extends Block implements WailaInfoProvider, TOPInfoProvid
         setHardness(2.0f);
         setSoundType(SoundType.METAL);
         setHarvestLevel("pickaxe", 0);
-        setUnlocalizedName(mod.getModId() + "." + name);
+        setTranslationKey(mod.getModId() + "." + name);
         setRegistryName(name);
         McJtyRegister.registerLater(this, mod, itemBlockFactory);
     }
@@ -266,7 +266,7 @@ public class BaseBlock extends Block implements WailaInfoProvider, TOPInfoProvid
         this.nonopaque = !opaque;
         this.fullBlock = this.getDefaultState().isOpaqueCube();
         this.lightOpacity = this.fullBlock ? 255 : 0;
-        this.translucent = !blockMaterial.blocksLight();
+        this.translucent = !material.blocksLight();
     }
 
     public void setFullcube(boolean fullcube) {

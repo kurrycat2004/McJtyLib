@@ -14,14 +14,14 @@ public class MultipartModelLoader implements ICustomModelLoader {
     public static final MultipartModel MULTIPART_MODEL = new MultipartModel();
 
     private static final Set<String> NAMES = ImmutableSet.of(
-            MultipartBakedModel.MODEL.getResourcePath());
+            MultipartBakedModel.MODEL.getPath());
 
     @Override
     public boolean accepts(ResourceLocation modelLocation) {
-        if (!modelLocation.getResourceDomain().equals(McJtyLib.PROVIDES)) {
+        if (!modelLocation.getNamespace().equals(McJtyLib.PROVIDES)) {
             return false;
         }
-        return NAMES.contains(modelLocation.getResourcePath());
+        return NAMES.contains(modelLocation.getPath());
     }
 
     @Override
