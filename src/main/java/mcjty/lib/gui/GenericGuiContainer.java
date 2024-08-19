@@ -74,6 +74,25 @@ public abstract class GenericGuiContainer<T extends GenericTileEntity> extends G
         return Collections.singletonList(sideWindow.getWindow().getToplevel().getBounds());
     }
 
+    // Backported from future versions of McJtyLib
+    // Mostly for JEI: get a list of all bounds additional to the main window. That includes modal windows, the side window, ...
+    public List<Rectangle> getExtraWindowBounds() {
+        if (sideWindow.getWindow() == null || sideWindow.getWindow().getToplevel() == null) {
+            Logging.getLogger().error(new RuntimeException("Internal error! getExtraWindowBounds() called before initGui!"));
+            return Collections.emptyList();
+        }
+        List<Rectangle> bounds = new ArrayList<>();
+        Rectangle r1 = sideWindow.getWindow().getToplevel().getBounds();
+        bounds.add(new Rectangle(r1.x, r1.y, r1.width, r1.height));
+        if (windowManager != null) {
+            for (Window w : windowManager.getWindows()) {
+                Rectangle r = w.getToplevel().getBounds();
+                bounds.add(new Rectangle(r.x, r.y, r.width, r.height));
+            }
+        }
+        return bounds;
+    }
+
 
     @Override
     public void initGui() {

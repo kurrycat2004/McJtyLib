@@ -26,7 +26,7 @@ public class JeiCompatibility implements IModPlugin {
 			@Override
 			public List<Rectangle> getGuiExtraAreas(GenericGuiContainer guiContainer) {
 				GenericGuiContainer<?> container = guiContainer;
-				return container.getSideWindowBounds();
+				return container.getExtraWindowBounds();
 			}
 
 			@Nullable

@@ -100,6 +100,10 @@ public class WindowManager {
         }
     }
 
+    public List<Window> getWindows() {
+        return windows;
+    }
+
     public Stream<Window> getModalWindows() {
         return modalWindows.stream();
     }
