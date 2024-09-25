@@ -18,6 +18,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class BlockRender extends AbstractWidget<BlockRender> {
 
@@ -35,6 +36,17 @@ public class BlockRender extends AbstractWidget<BlockRender> {
     private boolean showLabel = DEFAULT_SHOW_LABEL;
     private Integer labelColor = null;
     private List<BlockRenderEvent> selectionEvents = null;
+
+    private Consumer<ItemStack> ghostIngredientHandler = null;
+
+    public Consumer<ItemStack> getGhostIngredientHandler() {
+        return ghostIngredientHandler;
+    }
+
+    public BlockRender setGhostIngredientHandler(Consumer<ItemStack> ghostIngredientHandler) {
+        this.ghostIngredientHandler = ghostIngredientHandler;
+        return this;
+    }
 
     public Object getRenderItem() {
         return renderItem;
